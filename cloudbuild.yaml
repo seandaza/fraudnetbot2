@@ -1,10 +1,10 @@
  steps:
  # build the container image
  - name: 'gcr.io/cloud-builders/docker'
-   args: ['build', '-t', 'gcr.io/gc-k-mex-amex-b2b-dev-2/fraudnedbot2:$COMMIT_SHA', '.']
+   args: ['build', '-t', 'gcr.io/fraudnetbot/fraudnedbot2:$COMMIT_SHA', '.']
  # push the container image to Container Registry
  - name: 'gcr.io/cloud-builders/docker'
-   args: ['push', 'gcr.io/gc-k-mex-amex-b2b-dev-2/fraudnedbot2:$COMMIT_SHA']
+   args: ['push', 'gcr.io/fraudnetbot/fraudnedbot2:$COMMIT_SHA']
  # Deploy container image to Cloud Run
  - name: 'gcr.io/cloud-builders/gcloud'
    args:
@@ -12,11 +12,12 @@
    - 'deploy'
    - 'fraudnedbot2'
    - '--image'
-   - 'gcr.io/gc-k-mex-amex-b2b-dev-2/fraudnedbot2:$COMMIT_SHA'
+   - 'gcr.io/fraudnetbot/fraudnedbot2:$COMMIT_SHA'
    - '--region'
    - 'us-central1'
+   - '--allow-unauthenticated'
  images:
- - 'gcr.io/gc-k-mex-amex-b2b-dev-2/fraudnedbot2:$COMMIT_SHA'
+ - 'gcr.io/fraudnetbot/fraudnedbot2:$COMMIT_SHA'
 
 
 
