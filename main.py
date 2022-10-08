@@ -1,5 +1,6 @@
 
 from flask import Flask
+import chromedriver_binary  # Adds chromedriver binary to path
 import os
 import sys
 import time
@@ -135,7 +136,7 @@ def hello_bot():
 
             #send email
             # create message object instance
-            recipients = ['anastasiar@keoworld.com','carlosr@keoworld.com','carlosb@keoworld.com','ricardof@keoworld.com','armandoi@keoworld.com','luist@keoworld.com','edissonv@keoworld.com','erikab@keoworld.com', 'jhand@keoworld.com']
+            recipients = ['seandaza@gmail.com']#,'anastasiar@keoworld.com','carlosr@keoworld.com','carlosb@keoworld.com','ricardof@keoworld.com','armandoi@keoworld.com','luist@keoworld.com','edissonv@keoworld.com','erikab@keoworld.com', 'jhand@keoworld.com']
             for elm in recipients:
                 msg = MIMEMultipart()
                 # setup the parameters of the message
